@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!--DaisyUI & tailwind cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!--  DaisyUI CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/dist/full.css" rel="stylesheet" type="text/css" />
+    <!--  Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
 </head>
-<body class="bg-[#f4f5f7] h-[100vh] flex justify-center items-center">
-    <form class="w-[350px] bg-white rounded-2xl p-8 border-red-500">
+<body class="bg-[#f4f5f7] h-[100vh] flex flex-col justify-center items-center">
+    <!-- logo box -->
+    <div class="h-[130px] w-[300px] bg-[url(./assets/bg.png)] bg-cover flex justify-center items-center">
+        <img src="./assets/Group.png" alt="" srcset="">
+
+    </div>
+    <form class="w-[350px] bg-white rounded-2xl p-8 ">
         <div class="mt-5">
             <label class="font-semibold" for="">Mobile Number</label><br>
             <input type="text" placeholder="Enter your number" class="input bg-[#f4f5f7] mt-3 rounded-3xl" />
