@@ -1,66 +1,80 @@
+// ===== Helper Functions =====
 
-//add money btn
-
-document.getElementById("add-money-btn").addEventListener("click",function(e){
-  e.preventDefault()
-//   console.log("add money btn clicked") //check is btn ok. 
- const bank = document.getElementById("bank").value
-
- const accountNumber = document.getElementById("accountNumber").value
-
- const amount = parseInt(document.getElementById("addAmount").value)
-
- const pin = document.getElementById("addPin").value
-
- const availableBalance = parseInt(document.getElementById("available-balance").innerText)
-
-//  console.log(availableBalance);
-
-// if account number is not accuret bank wise and ofcourse total stop .
-if(accountNumber.length <11) {
-    alert("Please provide valid account number")
-    return;
+// input field থেকে value নেওয়া (number বা text)
+function getInputValue(id, isNumber = false) {
+    const value = document.getElementById(id).value;
+    return isNumber ? parseInt(value) : value;
 }
 
-// ----------as same in future we add if pin is ok or not ok , bank selection validity like select dbbl but account number provide brac bank .
- const totalNewAvailableBalance = amount + availableBalance
+// element থেকে innerText নেওয়া (number সহ)
+function getInnerTextValue(id, isNumber = false) {
+    const value = document.getElementById(id).innerText;
+    return isNumber ? parseInt(value) : value;
+}
 
- document.getElementById("available-balance").innerText = totalNewAvailableBalance
-})
+// element এ innerText সেট করা
+function setInnerTextValue(id, value) {
+    document.getElementById(id).innerText = value;
+}
 
-//cash out money feature
-
-document.getElementById("withdrow-btn").addEventListener("click",function(e){
-    e.preventDefault()
-    // console.log("withdrow btn clicked")
-
-    const amount = parseInt(document.getElementById("withdraw-amount").value)
-
-    const availableBalance = parseInt(document.getElementById("available-balance").innerText)
-    // console.log(availableBalance, amount)
-    const totalNewAvailableBalance = availableBalance - amount
-
-    // console.log(totalNewAvailableBalance)
-
-    document.getElementById("available-balance").innerText = totalNewAvailableBalance
-})
+// toggle show/hide
+function toggleSection(showId, hideId) {
+    document.getElementById(showId).style.display = "block";
+    document.getElementById(hideId).style.display = "none";
+}
 
 
+// ===== Main Functionalities =====
+
+// Add Money
+function addMoney() {
+    const bank = getInputValue("bank");
+    const accountNumber = getInputValue("accountNumber");
+    const amount = getInputValue("addAmount", true);
+    const pin = getInputValue("addPin");
+
+    const availableBalance = getInnerTextValue("available-balance", true);
+
+    // account number validation
+    if (accountNumber.length < 11) {
+        alert("Please provide valid account number");
+        return;
+    }
+
+    const totalNewAvailableBalance = amount + availableBalance;
+    setInnerTextValue("available-balance", totalNewAvailableBalance);
+}
+
+// Withdraw Money
+function withdrawMoney() {
+    const amount = getInputValue("withdraw-amount", true);
+    const availableBalance = getInnerTextValue("available-balance", true);
+
+    if (amount > availableBalance) {
+        alert("Insufficient Balance!");
+        return;
+    }
+
+    const totalNewAvailableBalance = availableBalance - amount;
+    setInnerTextValue("available-balance", totalNewAvailableBalance);
+}
 
 
+// ===== Event Listeners =====
+document.getElementById("add-money-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+    addMoney();
+});
 
-//toggling features
+document.getElementById("withdrow-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+    withdrawMoney();
+});
 
-document.getElementById("add-button").addEventListener("click",function(){
-    document.getElementById("cash-out-parent").style.display = "none"
+document.getElementById("add-button").addEventListener("click", function () {
+    toggleSection("add-money-parent", "cash-out-parent");
+});
 
-    document.getElementById("add-money-parent").style.display = "block"
-    
-})
-
-
-document.getElementById("cash-out-button").addEventListener("click",function(){
-    document.getElementById("cash-out-parent").style.display = "block"
-
-    document.getElementById("add-money-parent").style.display = "none"
-})
+document.getElementById("cash-out-button").addEventListener("click", function () {
+    toggleSection("cash-out-parent", "add-money-parent");
+});
