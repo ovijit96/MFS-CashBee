@@ -1,4 +1,5 @@
 // ===== Helper Functions =====
+//making using ai reusable function previous commit u can see raw code
 
 // input field থেকে value নেওয়া (number বা text)
 function getInputValue(id, isNumber = false) {
