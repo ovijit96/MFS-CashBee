@@ -9,7 +9,7 @@ document.getElementById("loginButton").addEventListener("click",function(e){
     const pinNumberValue = document.getElementById("pin-number").value
     const pinNumberValueConverted = parseInt(pinNumberValue)
 
-    console.log(mobileNumbervalueConverted, pinNumberValueConverted);
+    // console.log(mobileNumbervalueConverted, pinNumberValueConverted);
 
     if(mobileNumbervalueConverted === mobileNumber && pinNumberValueConverted === pinNumber){
         window.location.href="home.html"

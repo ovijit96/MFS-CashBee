@@ -11,7 +11,7 @@
   <!-- fontAwesome CDN -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-[#f4f5f7] h-[100vh]">
+<body class="bg-[#f4f5f7] h-[100vh] justify-center items-center">
     <div class="max-w-lg mx-auto bg-white p-3 rounded-b-xl">
     <div class=" min-h-[50px] flex justify-between items-center  p-3 border-b-2 border-gray-400 p-3">
         <div class="flex">
@@ -41,19 +41,19 @@
             <img src="assets/send1.png" class="mx-auto" alt="">
             <h2>Cashout</h2>
         </div>
-        <div class="border-2 border-green-500 text-center p-3 rounded-xl">
+        <div id="transfer-money-button" class="border-2 border-green-500 text-center p-3 rounded-xl">
             <img src="assets/money1.png" class="mx-auto" alt="">
             <h2>Transfer Money</h2>
         </div>
-        <div class="border-2 border-green-500 text-center p-3 rounded-xl">
+        <div  id="get-bonus-button" class="border-2 border-green-500 text-center p-3 rounded-xl">
             <img src="assets/bonus1.png" class="mx-auto" alt="">
             <h2>Get Bonus</h2>
         </div>
-        <div class="border-2 border-green-500 text-center p-3 rounded-xl">
+        <div  id="pay-bill-button" class="border-2 border-green-500 text-center p-3 rounded-xl">
             <img src="assets/purse1.png" class="mx-auto" alt="">
             <h2>Pay Bill</h2>
         </div>
-        <div class="border-2 border-green-500 text-center p-3 rounded-xl">
+        <div  id="transactions-button" class="border-2 border-green-500 text-center p-3 rounded-xl">
             <img src="assets/transaction1.png" class="mx-auto" alt="">
             <h2>Transactions</h2>
         </div>
@@ -61,10 +61,10 @@
     </div>
 <!-- add money -->
     <!-- all form sections -->
-<div class="all-form-sections max-w-lg mx-auto p-3">
-    <div>
+<div class="all-form-sections max-w-lg mx-auto p-3 ">
+    <div id="add-money-parent">
         <h1 class="my-5 font-bold">Add Money</h1>
-        <form action="" class="bg-white rounded-2xl p-8">
+        <form action="" class="bg-white rounded-2xl p-8 ">
             <div>
                 <h1 class="font-semibold">Select a Bank</h1>
                 <select id="bank" class="select bg-[#f4f5f7] mt-3 rounded-3xl w-full">
@@ -92,6 +92,53 @@
     
 </div>
 
+<!-- cash out  -->
+<div  class="all-form-sections max-w-lg mx-auto p-3">
+
+
+<div id="cash-out-parent"  style="display: none;">
+    <h1 class="my-5 font-bold">Cash out</h1>
+    <form action="" class="bg-white rounded-2xl p-8">
+            
+            <div>
+                <label class="font-semibold" for="">Agent Number</label><br>
+            <input type="text" placeholder="Enter 11 digit number" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+            </div>
+            <div>
+                <label class="font-semibold" for="">Amount</label><br>
+            <input id="withdraw-amount" type="text" placeholder="Enter amount to withdraw" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+            </div>
+            <div>
+                <label class="font-semibold" for="">Pin Number</label><br>
+            <input type="text" placeholder="Enter 4 digit pin number" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+            </div>
+            <button id="withdrow-btn" type="button" class="btn text-white bg-[#0874F2] mt-5 w-full rounded-3xl" >Withdraw Money</button>
+        </form>
+</div>
+</div>
+<!-- Transfer Money  -->
+
+<!-- <div id="transfer-money-parent">
+    <h1 class="my-5 font-bold">Transfer Money</h1>
+</div> -->
+
+<!-- get bonus  -->
+
+<!-- <div id="get-bonus-parent">
+    <h1 class="my-5 font-bold">Get Bonus</h1>
+</div> -->
+
+<!-- pay bill  -->
+
+<!-- <div id="pay-bill-parent">
+    <h1 class="my-5 font-bold">Pay Bill</h1>
+</div> -->
+
+<!-- transactions  -->
+
+<!-- <div id="transactions-parent">
+    <h1 class="my-5 font-bold">Transactions</h1>
+</div> -->
 <script src="home.js"></script>
 </body>
 </html>
